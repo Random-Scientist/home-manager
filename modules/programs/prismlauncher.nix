@@ -78,8 +78,13 @@ in
 
       impureConfigMerger = filePath: staticSettingsFile: emptySettingsFile: ''
         mkdir -p "$(dirname ${escapeShellArg filePath})"
-
+        echo 'prism config'
+        echo "$(dirname ${escapeShellArg filePath})"
+        echo "$PWD"
+        ls
         if [ ! -e ${escapeShellArg filePath} ]; then
+          ls
+          echo 'writing empty file to '${escapeShellArg filePath}
           cat ${escapeShellArg emptySettingsFile} > ${escapeShellArg filePath}
         fi
 
